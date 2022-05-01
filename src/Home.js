@@ -5,6 +5,11 @@ import Button from '@mui/material/Button';
 import Layout from './Layout/Layout';
 import db  from './firebase-config'
 import { collection, getDocs } from "firebase/firestore";
+import ReactGA from 'react-ga';
+import { analytics } from './firebase-config'
+import {logEvent} from 'firebase/analytics'
+
+ReactGA.initialize(313429538);
 
 const Home = () => {
 
@@ -28,6 +33,8 @@ const Home = () => {
 
     useEffect(() => {
         getRevenues(db)
+        ReactGA.pageview(window.location.pathname + window.location.search);
+        logEvent(analytics, "logged in.")
     },[])
 
     return (
