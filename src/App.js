@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState, useEffect} from 'react'
+import { Routes, Route, useNavigate   } from "react-router-dom";
+import Login from './Login';
+import Home from './Home';
+import { authentication } from './firebase-config';
+import { onAuthStateChanged } from "firebase/auth";
 
 function App() {
+  const [isUserSignedIn, setIsUserSignedIn] = useState(true);
+  // let navigate = useNavigate();
+
+  
+  useEffect(() => {
+    onAuthStateChanged(authentication, (user) => {
+      console.log(user)
+      if (user) {
+        // navigate("/home");
+        return setIsUserSignedIn(true)
+      }
+      setIsUserSignedIn(false)
+    }
+    );
+  })
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        {!isUserSignedIn ?
+          <Route path="/" element={<Login isUserSignedIn />} />
+          :
+          <Route path="/" element={<Home />} />
+        }
+      </Routes>
     </div>
   );
 }
