@@ -1,8 +1,8 @@
 import './App.css';
 import React, {useState, useEffect} from 'react'
 import { Routes, Route, useNavigate   } from "react-router-dom";
-import Login from './Login';
-import Home from './Home';
+import Login from './Component/Login';
+import Home from './Component/Home';
 import { authentication } from './firebase-config';
 import { onAuthStateChanged } from "firebase/auth";
 

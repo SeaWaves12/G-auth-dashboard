@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import { authentication } from './firebase-config';
+import { authentication } from '../firebase-config';
 import { signInWithPopup, GoogleAuthProvider, setPersistence, browserLocalPersistence } from "firebase/auth";
 // import { signOut } from "firebase/auth";
 
@@ -39,7 +39,6 @@ const Login = ({ isUserSignedIn}) => {
             <div className="App">
                 Hello, There!!
             </div>
-            {/* <button onClick={signInWithGoogle}>Sign in using google</button> */}
             <Button variant="contained" onClick={signInWithGoogle}> Sign in using google</Button>
         </div>
     )

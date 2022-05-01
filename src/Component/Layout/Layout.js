@@ -1,6 +1,6 @@
 
 import { styled } from '@mui/material/styles';
-import DashboardApp from '../Pages/DashboardApp';
+import DashboardApp from '../../Pages/DashboardApp';
 
 // ----------------------------------------------------------------------
 

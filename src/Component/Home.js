@@ -1,12 +1,12 @@
 import React,{useState, useEffect} from 'react'
-import { authentication } from './firebase-config';
+import { authentication } from '../firebase-config';
 import { signOut } from "firebase/auth";
 import Button from '@mui/material/Button';
 import Layout from './Layout/Layout';
-import db  from './firebase-config'
+import db  from '../firebase-config'
 import { collection, getDocs } from "firebase/firestore";
 import ReactGA from 'react-ga';
-import { analytics } from './firebase-config'
+import { analytics } from '../firebase-config'
 import {logEvent} from 'firebase/analytics'
 
 ReactGA.initialize(313429538);
@@ -40,7 +40,6 @@ const Home = () => {
     return (
         <div>
             <div>
-                {/* <button onClick={signOutHandler}>Sign Out</button> */}
                 <Button variant="contained" onClick={signOutHandler}> Sign Out</Button>
             </div>
             <div style={{ margin:"16px"}}>

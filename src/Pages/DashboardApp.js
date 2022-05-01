@@ -1,8 +1,8 @@
 import React from 'react'
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography } from '@mui/material';
-import AppCurrentVisits  from "../sections/Dashboard/App/AppCurrentVisits";
-import AppWebsiteVisits from "../sections/Dashboard/App/AppWebsiteVisits";
+import AppCurrentVisits  from "../Component/Dashboard/AppCurrentVisits";
+import AppWebsiteVisits from "../Component/Dashboard/AppWebsiteVisits";
 import { green, red, purple, grey, yellow } from '@mui/material/colors';
 
 import InputLabel from '@mui/material/InputLabel';
