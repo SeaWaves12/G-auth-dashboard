@@ -18,6 +18,7 @@ const Home = () => {
     const signOutHandler = () => {
         signOut(authentication).then((res) => {
             console.log("signed out", res)
+            logEvent(analytics, "logged out")
         }).catch((error) => {
             // An error happened.
         });
@@ -34,7 +35,6 @@ const Home = () => {
     useEffect(() => {
         getRevenues(db)
         ReactGA.pageview(window.location.pathname + window.location.search);
-        logEvent(analytics, "logged in.")
     },[])
 
     return (

@@ -2,7 +2,11 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import { authentication } from '../firebase-config';
 import { signInWithPopup, GoogleAuthProvider, setPersistence, browserLocalPersistence } from "firebase/auth";
-// import { signOut } from "firebase/auth";
+import ReactGA from 'react-ga';
+import { analytics } from '../firebase-config'
+import { logEvent } from 'firebase/analytics'
+
+ReactGA.initialize(313429538);
 
 const Login = ({ isUserSignedIn}) => {
 
@@ -19,6 +23,7 @@ const Login = ({ isUserSignedIn}) => {
                         // const token = credential.accessToken;
                         // The signed-in user info.
 
+                        logEvent(analytics, "logged in")
                         console.log(result)
                         // const user = result.user;
                     }).catch((error) => {
